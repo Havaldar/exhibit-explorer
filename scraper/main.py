@@ -28,8 +28,14 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
 EXHIBITIONS_JSON = os.path.join(DATA_DIR, 'exhibitions.json')
 HASHES_JSON = os.path.join(DATA_DIR, 'hashes.json')
 
-HEADERS = {'User-Agent': 'NYCExhibitionsTracker/1.0 (personal research; contact: github.com/your-handle)'}
-REQUEST_DELAY = 2  # seconds between museum fetches
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br',
+}
+REQUEST_DELAY = 3  # seconds between museum fetches
+MAX_RETRIES = 3
 
 
 def fetch_sheet() -> list[dict]:
@@ -43,13 +49,38 @@ def fetch_sheet() -> list[dict]:
 
 
 def fetch_page(url: str) -> str | None:
+    for attempt in range(MAX_RETRIES):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=20)
+            if r.status_code == 429:
+                wait = 30 * (attempt + 1)
+                print(f"  429 rate limited — waiting {wait}s (attempt {attempt+1}/{MAX_RETRIES})")
+                time.sleep(wait)
+                continue
+            r.raise_for_status()
+            text = trafilatura.extract(r.text, include_links=False, include_images=False)
+            return text or ''
+        except Exception as e:
+            print(f"  Fetch error {url}: {e}")
+            if attempt < MAX_RETRIES - 1:
+                time.sleep(10)
+    return None
+
+
+def fetch_page_playwright(url: str) -> str | None:
+    """Render JS-heavy pages using Playwright (only for needsJs=TRUE museums)."""
     try:
-        r = requests.get(url, headers=HEADERS, timeout=20)
-        r.raise_for_status()
-        text = trafilatura.extract(r.text, include_links=False, include_images=False)
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page(user_agent=HEADERS['User-Agent'])
+            page.goto(url, wait_until='networkidle', timeout=30000)
+            html = page.content()
+            browser.close()
+        text = trafilatura.extract(html, include_links=False, include_images=False)
         return text or ''
     except Exception as e:
-        print(f"  Fetch error {url}: {e}")
+        print(f"  Playwright error {url}: {e}")
         return None
 
 
@@ -98,6 +129,7 @@ def run():
         hours = row.get('hours', '').strip()
         website = row.get('website', '').strip()
         follow_detail = row.get('followDetailPages', '').upper() == 'TRUE'
+        needs_js = row.get('needsJs', '').upper() == 'TRUE'
 
         # Auto-discover URL if blank
         if not url:
@@ -112,7 +144,7 @@ def run():
                 continue
 
         # Fetch page
-        text = fetch_page(url)
+        text = fetch_page_playwright(url) if needs_js else fetch_page(url)
         time.sleep(REQUEST_DELAY)
 
         if text is None:
