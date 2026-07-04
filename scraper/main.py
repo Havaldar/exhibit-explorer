@@ -55,14 +55,19 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
     reliable — Playwright is the right default for a weekly job.
     """
     from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
+    import shutil
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(
+            # Use system Chrome if available (less detectable than Playwright's bundled Chromium)
+            # github Actions ubuntu runners have google-chrome-stable pre-installed
+            has_system_chrome = bool(shutil.which('google-chrome-stable') or shutil.which('google-chrome'))
+            launch_kwargs = dict(
                 headless=True,
-                # --no-sandbox is required in CI; avoid other flags that
-                # change rendering and break Cloudflare JS challenges
                 args=['--no-sandbox'],
             )
+            if has_system_chrome:
+                launch_kwargs['channel'] = 'chrome'
+            browser = p.chromium.launch(**launch_kwargs)
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
             page.add_init_script("""
                 Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
