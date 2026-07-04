@@ -1,0 +1,38 @@
+name: Weekly Scrape
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Mondays 6am UTC
+  workflow_dispatch:       # allow manual trigger
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scraper/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Run scraper
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SHEET_ID: ${{ vars.SHEET_ID }}
+        run: python scraper/main.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/exhibitions.json data/hashes.json
+          git diff --cached --quiet || git commit -m "chore: update exhibitions data $(date -u +%Y-%m-%d)"
+          git push
