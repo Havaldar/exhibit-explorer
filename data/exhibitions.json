@@ -1,165 +1,31 @@
 {
-  "generatedAt": "2026-07-04T06:00:00Z",
+  "generatedAt": "2026-07-04T19:04:30.442439+00:00",
   "museums": [
     {
-      "name": "MoMA",
-      "lat": 40.7614,
-      "lng": -73.9776,
-      "hours": "Mon–Sun 10:30am–5:30pm, Fri until 8pm",
-      "website": "https://www.moma.org",
+      "name": "Whitney Museum of American Art",
+      "lat": 40.7396,
+      "lng": -74.009,
+      "hours": "Mon, Wed\u00e2\u0080\u0093Thu 10:30\u00e2\u0080\u00936, Fri\u00e2\u0080\u0093Sat 10:30\u00e2\u0080\u009310",
+      "website": "https://whitney.org/",
       "lastSuccessfulScrape": "2026-07-04",
       "scrapeStatus": "ok",
       "exhibitions": [
         {
-          "title": "Picasso and Photography",
-          "description": "An exploration of how Picasso used photography as both reference and creative tool across six decades of his career.",
-          "startDate": "2026-05-10",
-          "endDate": "2026-07-14",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&q=80",
-          "detailUrl": null
-        },
-        {
-          "title": "Signals: How Video Transformed the World",
-          "description": "A survey of artists who used video as a medium of social critique and artistic experimentation from the 1960s to today.",
-          "startDate": "2026-03-05",
-          "endDate": "2026-07-28",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80",
-          "detailUrl": null
-        },
-        {
-          "title": "Architecture and Design Collection",
-          "description": "Highlights from MoMA's permanent collection of architecture models, drawings, and industrial design objects.",
+          "title": "artport",
+          "description": "The Whitney's portal to net art and digital arts, and an online gallery space for commissioned net art projects. The Whitney also hosts events and exhibitions in a virtual environment within MONA.",
           "startDate": null,
           "endDate": null,
           "ongoing": true,
-          "imageUrl": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80",
-          "detailUrl": null
-        }
-      ]
-    },
-    {
-      "name": "Whitney Museum",
-      "lat": 40.7396,
-      "lng": -74.0089,
-      "hours": "Mon, Wed–Thu 10:30am–6pm, Fri–Sat 10:30am–10pm, Sun 10:30am–6pm",
-      "website": "https://whitney.org",
-      "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "ok",
-      "exhibitions": [
-        {
-          "title": "Edward Hopper's New York",
-          "description": "A definitive exploration of Hopper's six-decade engagement with New York City, featuring over 200 works from public and private collections.",
-          "startDate": "2026-04-15",
-          "endDate": "2026-08-16",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
+          "imageUrl": null,
           "detailUrl": null
         },
         {
-          "title": "Whitney Biennial 2026",
-          "description": "The 83rd edition of the Whitney Biennial featuring 72 artists working across painting, sculpture, video, and performance.",
-          "startDate": "2026-03-20",
-          "endDate": "2026-08-03",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?w=400&q=80",
-          "detailUrl": null
-        }
-      ]
-    },
-    {
-      "name": "The Met",
-      "lat": 40.7794,
-      "lng": -73.9632,
-      "hours": "Sun–Tue, Thu 10am–5pm, Fri–Sat 10am–9pm",
-      "website": "https://www.metmuseum.org",
-      "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "ok",
-      "exhibitions": [
-        {
-          "title": "Manet / Degas",
-          "description": "The first exhibition to examine the complex relationship between these two towering figures of 19th-century French art.",
-          "startDate": "2026-02-24",
-          "endDate": "2026-07-07",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=400&q=80",
-          "detailUrl": null
-        },
-        {
-          "title": "In America: An Anthology of Fashion",
-          "description": "A continuation of the 2021 exhibition exploring American fashion through cinematic vignettes staged in the Met's period rooms.",
-          "startDate": "2026-05-07",
-          "endDate": "2026-09-05",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&q=80",
-          "detailUrl": null
-        },
-        {
-          "title": "The Harlem Renaissance and Transatlantic Modernism",
-          "description": "The first comprehensive museum survey of the Harlem Renaissance, showing how Black American artists transformed global modernism.",
-          "startDate": "2026-02-25",
-          "endDate": "2026-07-28",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1561839561-b13bcfe95249?w=400&q=80",
-          "detailUrl": null
-        }
-      ]
-    },
-    {
-      "name": "Guggenheim",
-      "lat": 40.7830,
-      "lng": -73.9590,
-      "hours": "Sun–Mon, Wed–Fri 11am–6pm, Sat 11am–8pm",
-      "website": "https://www.guggenheim.org",
-      "lastSuccessfulScrape": "2026-06-27",
-      "scrapeStatus": "cached",
-      "exhibitions": [
-        {
-          "title": "Basquiat's \"Defacement\": The Untold Story",
-          "description": "Centering on Basquiat's rarely seen mural, this exhibition reconstructs the work's history and recounts the circumstances of its creation.",
-          "startDate": "2026-06-01",
-          "endDate": "2026-11-08",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&q=80",
-          "detailUrl": null
-        },
-        {
-          "title": "Countryside, The Future",
-          "description": "Rem Koolhaas and AMO examine the dramatic transformations occurring in the non-urban world—the countryside.",
-          "startDate": "2026-02-20",
-          "endDate": "2026-08-14",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&q=80",
-          "detailUrl": null
-        }
-      ]
-    },
-    {
-      "name": "Brooklyn Museum",
-      "lat": 40.6712,
-      "lng": -73.9636,
-      "hours": "Thu–Sun 11am–6pm",
-      "website": "https://www.brooklynmuseum.org",
-      "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "ok",
-      "exhibitions": [
-        {
-          "title": "Hannah Höch",
-          "description": "The most comprehensive survey of this pioneering Berlin Dada artist ever mounted in the United States, featuring over 300 works.",
-          "startDate": "2026-03-14",
-          "endDate": "2026-08-10",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400&q=80",
-          "detailUrl": null
-        },
-        {
-          "title": "When We See Us: A Century of Black Figuration",
-          "description": "A landmark exhibition bringing together over 100 artists from around the world to explore Black self-representation in painting.",
-          "startDate": "2026-04-12",
-          "endDate": "2026-07-19",
-          "ongoing": false,
-          "imageUrl": "https://images.unsplash.com/photo-1565204528485-7571a89e2fa0?w=400&q=80",
+          "title": "Public art",
+          "description": "Engage with powerful site-specific artworks outside the Whitney's walls.",
+          "startDate": null,
+          "endDate": null,
+          "ongoing": true,
+          "imageUrl": null,
           "detailUrl": null
         }
       ]
