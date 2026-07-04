@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T19:26:28.005922+00:00",
+  "generatedAt": "2026-07-04T19:28:56.518903+00:00",
   "museums": [
     {
       "name": "Museum of Modern Art",
@@ -8,207 +8,8 @@
       "hours": "Mon\u00e2\u0080\u0093Sun 10:30\u00e2\u0080\u00935:30, Fri until 8",
       "website": "https://www.moma.org",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "failed",
-      "exhibitions": [
-        {
-          "title": "Artist's Choice: Arthur Jafa\u2014Less Is Morbid",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-07-05",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "The Many Lives of the Nakagin Capsule Tower",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-07-12",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Ideas of Africa: Portraiture and Political Imagination",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-07-25",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "American Folk Art: Revisiting the Collection of Abby Aldrich Rockefeller",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-08-09",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Marcel Duchamp",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-08-22",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Frida and Diego: The Last Dream",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-09-12",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Peggy Weil: Core Memory",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-10-04",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Pierre Huyghe: UUmwelt",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-11-29",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Architects of Liberation: Modernism in Western Africa",
-          "description": null,
-          "startDate": "2026-07-05",
-          "endDate": "2027-01-02",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Odili Donald Odita: Songs from Life",
-          "description": null,
-          "startDate": null,
-          "endDate": "2027-05-31",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "It's Alive! A Century of Animation from the Collection",
-          "description": null,
-          "startDate": "2026-08-01",
-          "endDate": "2027-08-31",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Studio Residency: Pageant",
-          "description": null,
-          "startDate": "2026-08-01",
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Taking Back Our Space: Photographic Perspectives",
-          "description": null,
-          "startDate": "2026-09-20",
-          "endDate": "2027-05-02",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "The Surrealist Book",
-          "description": null,
-          "startDate": "2026-10-04",
-          "endDate": "2027-01-23",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Brancusi: The Artist and His Studio",
-          "description": null,
-          "startDate": "2026-10-25",
-          "endDate": "2027-02-27",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Na Mira: NO SMOKING",
-          "description": null,
-          "startDate": "2026-11-14",
-          "endDate": "2027-02-15",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Mondrian Boogie Woogie",
-          "description": null,
-          "startDate": "2027-03-21",
-          "endDate": "2027-07-31",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "MoMA Staff Art Exhibition 2026",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-07-05",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Creativity Lab: Make a Portrait",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-08-30",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "The Modern Window: Julien Ceccaldi",
-          "description": null,
-          "startDate": null,
-          "endDate": "2025-09-30",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Hyundai Card First Look: Joan Snyder",
-          "description": null,
-          "startDate": "2026-04-23",
-          "endDate": "2026-11-30",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Hyundai Card First Look: Sheree Hovsepian",
-          "description": null,
-          "startDate": "2026-04-24",
-          "endDate": "2026-11-30",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        }
-      ]
+      "scrapeStatus": "ok",
+      "exhibitions": []
     },
     {
       "name": "Metropolitan Museum",
@@ -217,7 +18,7 @@
       "hours": "Sun\u00e2\u0080\u0093Tue, Thu 10\u00e2\u0080\u00935, Fri\u00e2\u0080\u0093Sat 10\u00e2\u0080\u00939",
       "website": "https://www.metmuseum.org/",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "cached",
+      "scrapeStatus": "ok",
       "exhibitions": []
     },
     {
@@ -227,23 +28,149 @@
       "hours": "Mon, Wed\u00e2\u0080\u0093Thu 10:30\u00e2\u0080\u00936, Fri\u00e2\u0080\u0093Sat 10:30\u00e2\u0080\u009310",
       "website": "https://whitney.org/",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "cached",
+      "scrapeStatus": "ok",
       "exhibitions": [
         {
-          "title": "artport",
-          "description": "The Whitney's portal to net art and digital arts, and an online gallery space for commissioned net art projects. The Whitney also hosts events and exhibitions in a virtual environment within MONA.",
+          "title": "Whitney Biennial 2026",
+          "description": null,
           "startDate": null,
-          "endDate": null,
-          "ongoing": true,
+          "endDate": "2026-08-23",
+          "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
         },
         {
-          "title": "Public art",
-          "description": "Engage with powerful site-specific artworks outside the Whitney's walls.",
+          "title": "Andy Warhol Family Album",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-10-19",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Hyundai Terrace Commission: Kelly Akashi",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-08-23",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Mabel Dwight: Cool Head, Warm Heart",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-08-30",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "\"Untitled\" (America)",
+          "description": null,
           "startDate": null,
           "endDate": null,
-          "ongoing": true,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Dyani White Hawk: Nourish",
+          "description": null,
+          "startDate": null,
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Roy Lichtenstein",
+          "description": null,
+          "startDate": "2026",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Leo Casta\u00f1eda: Camoflux Recall Grotto",
+          "description": null,
+          "startDate": "2026",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Memo Akten & Katie Hofstadter: The Thinking Ocean",
+          "description": null,
+          "startDate": "2026",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Robert Nideffer: 12 Years in Azeroth \u2013 The Journey Begins",
+          "description": null,
+          "startDate": "2025",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Frank WANG Yefeng: The Levitating Perils #2",
+          "description": null,
+          "startDate": "2025-10-29",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "INFANT: BANNED SKILLS",
+          "description": null,
+          "startDate": "2025",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Nancy Baker Cahill: CENTO",
+          "description": null,
+          "startDate": null,
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Ta\u00edna H. Cruz: I Saw the Future and It Smiled Back",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-09-30",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "David Hammons: Day's End",
+          "description": null,
+          "startDate": null,
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Rashid Johnson: New Poetry",
+          "description": null,
+          "startDate": null,
+          "endDate": null,
+          "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
         }
