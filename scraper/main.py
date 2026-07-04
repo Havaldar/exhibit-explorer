@@ -18,7 +18,7 @@ import anthropic
 from dotenv import load_dotenv
 
 from discover import discover_exhibitions_url
-from extract import extract_exhibitions
+from extract import extract_batch
 
 load_dotenv()
 
@@ -129,7 +129,9 @@ def run():
         print("No SHEET_ID set — using hardcoded sample museums for testing")
         sheet_rows = SAMPLE_MUSEUMS
 
-    museums_out = []
+    # ── Pass 1: fetch all pages, separate changed from cached/failed ──────────
+    museum_configs = []   # full config per row
+    pending_extract = {}  # name → text, for museums that need LLM extraction
 
     for row in sheet_rows:
         name = row['name'].strip()
@@ -141,73 +143,88 @@ def run():
         hours = row.get('hours', '').strip()
         website = row.get('website', '').strip()
         follow_detail = row.get('followDetailPages', '').upper() == 'TRUE'
-        needs_js = row.get('needsJs', '').upper() == 'TRUE'
 
-        # Auto-discover URL if blank
+        cfg = dict(name=name, url=url, lat=lat, lng=lng, hours=hours,
+                   website=website, follow_detail=follow_detail)
+
         if not url:
             print("  No URL — auto-discovering…")
-            url = discover_exhibitions_url(website or f"https://www.{name.lower().replace(' ', '')}.org", client)
+            url = discover_exhibitions_url(
+                website or f"https://www.{name.lower().replace(' ', '')}.org", client)
             if url:
                 print(f"  Paste into sheet: {url}")
+                cfg['url'] = url
             else:
                 print("  Discovery failed, skipping")
-                if name in prev_by_name:
-                    museums_out.append({**prev_by_name[name], 'scrapeStatus': 'failed'})
+                cfg['status'] = 'failed'
+                museum_configs.append(cfg)
                 continue
 
-        # Fetch page via Playwright (real browser, handles JS and bot protection)
         text = fetch_page(url)
         time.sleep(REQUEST_DELAY)
 
         if text is None:
             print("  Fetch failed")
-            if name in prev_by_name:
-                museums_out.append({**prev_by_name[name], 'scrapeStatus': 'failed'})
+            cfg['status'] = 'failed'
+            museum_configs.append(cfg)
             continue
 
-        # Hash check
         h = sha256(text)
         if hashes.get(name) == h and name in prev_by_name:
             print("  Unchanged — reusing cached data")
-            museums_out.append({**prev_by_name[name], 'scrapeStatus': 'cached'})
+            cfg['status'] = 'cached'
+            museum_configs.append(cfg)
             continue
 
-        # Extract with LLM
-        print("  Changed — extracting with Haiku…")
-        exhibitions = extract_exhibitions(text, client)
-        print(f"  Found {len(exhibitions)} exhibitions")
+        print("  Changed — queued for Batch API extraction")
+        cfg['status'] = 'pending'
+        cfg['hash'] = h
+        pending_extract[name] = text
+        museum_configs.append(cfg)
 
-        # Resolve relative URLs
-        for ex in exhibitions:
-            if ex.get('detailUrl') and not ex['detailUrl'].startswith('http'):
-                ex['detailUrl'] = urljoin(url, ex['detailUrl'])
-            if ex.get('imageUrl') and not ex['imageUrl'].startswith('http'):
-                ex['imageUrl'] = urljoin(url, ex['imageUrl'])
+    # ── Pass 2: single Batch API call for all changed museums ─────────────────
+    batch_results = {}
+    if pending_extract:
+        print(f"\nSubmitting batch: {len(pending_extract)} museum(s) → Haiku")
+        batch_results = extract_batch(pending_extract, client)
 
-        # Follow detail pages if flagged
-        if follow_detail:
+    # ── Pass 3: assemble output ───────────────────────────────────────────────
+    museums_out = []
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+
+    for cfg in museum_configs:
+        name = cfg['name']
+        status = cfg['status']
+
+        if status == 'cached':
+            museums_out.append({**prev_by_name[name], 'scrapeStatus': 'cached'})
+
+        elif status == 'failed':
+            if name in prev_by_name:
+                museums_out.append({**prev_by_name[name], 'scrapeStatus': 'failed'})
+
+        elif status == 'pending':
+            exhibitions = batch_results.get(name, [])
+            print(f"  {name}: {len(exhibitions)} exhibitions")
+
+            url = cfg['url']
             for ex in exhibitions:
-                if ex.get('detailUrl') and (not ex.get('endDate') or not ex.get('description')):
-                    detail_text = fetch_page(ex['detailUrl'])
-                    time.sleep(REQUEST_DELAY)
-                    if detail_text:
-                        detail = extract_exhibitions(detail_text, client)
-                        if detail:
-                            ex.setdefault('endDate', detail[0].get('endDate'))
-                            ex.setdefault('description', detail[0].get('description'))
+                if ex.get('detailUrl') and not ex['detailUrl'].startswith('http'):
+                    ex['detailUrl'] = urljoin(url, ex['detailUrl'])
+                if ex.get('imageUrl') and not ex['imageUrl'].startswith('http'):
+                    ex['imageUrl'] = urljoin(url, ex['imageUrl'])
 
-        hashes[name] = h
-
-        museums_out.append({
-            'name': name,
-            'lat': lat,
-            'lng': lng,
-            'hours': hours,
-            'website': website,
-            'lastSuccessfulScrape': datetime.now(timezone.utc).strftime('%Y-%m-%d'),
-            'scrapeStatus': 'ok',
-            'exhibitions': exhibitions,
-        })
+            hashes[name] = cfg['hash']
+            museums_out.append({
+                'name': name,
+                'lat': cfg['lat'],
+                'lng': cfg['lng'],
+                'hours': cfg['hours'],
+                'website': cfg['website'],
+                'lastSuccessfulScrape': today,
+                'scrapeStatus': 'ok',
+                'exhibitions': exhibitions,
+            })
 
     output = {
         'generatedAt': datetime.now(timezone.utc).isoformat(),
