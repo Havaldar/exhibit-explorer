@@ -54,7 +54,7 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
     Museum sites are too JS-heavy and bot-protected for plain requests to be
     reliable — Playwright is the right default for a weekly job.
     """
-    from playwright.sync_api import sync_playwright
+    from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(
@@ -62,17 +62,22 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
                 args=['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
             )
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
-            # Patch the signals Cloudflare/Vercel bot detection checks
             page.add_init_script("""
                 Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
                 Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3] });
                 Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
                 window.chrome = { runtime: {} };
             """)
-            page.goto(url, wait_until='domcontentloaded', timeout=45000)
-            page.wait_for_timeout(5000)
-            text = page.inner_text('body')
+            try:
+                # networkidle lets Cloudflare JS challenges complete — important for MoMA
+                page.goto(url, wait_until='networkidle', timeout=30000)
+            except PWTimeout:
+                # Page hung on background requests — content is usually loaded by now
+                print(f"  networkidle timeout — extracting what loaded so far")
+            page.wait_for_timeout(2000)
+            html = page.content()
             browser.close()
+        text = trafilatura.extract(html, include_links=False, include_images=False)
         chars = len(text) if text else 0
         print(f"  Fetched {chars} chars from {url}")
         return text or ''
