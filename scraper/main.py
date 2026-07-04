@@ -59,7 +59,9 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                args=['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
+                # --no-sandbox is required in CI; avoid other flags that
+                # change rendering and break Cloudflare JS challenges
+                args=['--no-sandbox'],
             )
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
             page.add_init_script("""
@@ -69,16 +71,19 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
                 window.chrome = { runtime: {} };
             """)
             try:
-                # networkidle lets Cloudflare JS challenges complete — important for MoMA
-                page.goto(url, wait_until='networkidle', timeout=30000)
+                page.goto(url, wait_until='networkidle', timeout=45000)
             except PWTimeout:
-                # Page hung on background requests — content is usually loaded by now
                 print(f"  networkidle timeout — extracting what loaded so far")
             page.wait_for_timeout(2000)
             html = page.content()
+            # Use whichever extraction method gives more content:
+            # trafilatura works well for server-rendered pages (MoMA)
+            # inner_text works well for JS-rendered pages (Whitney)
+            text_traf = trafilatura.extract(html, include_links=False, include_images=False) or ''
+            text_inner = page.inner_text('body') or ''
+            text = text_traf if len(text_traf) >= len(text_inner) else text_inner
             browser.close()
-        text = trafilatura.extract(html, include_links=False, include_images=False)
-        chars = len(text) if text else 0
+        chars = len(text)
         print(f"  Fetched {chars} chars from {url}")
         return text or ''
     except Exception as e:
