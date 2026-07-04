@@ -55,6 +55,7 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
     reliable — Playwright is the right default for a weekly job.
     """
     from playwright.sync_api import sync_playwright
+    from playwright_stealth import stealth_sync
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(
@@ -63,6 +64,8 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
                 args=['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
             )
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
+            # Mask headless signals that Cloudflare/Vercel bot detection looks for
+            stealth_sync(page)
             # domcontentloaded is faster and avoids hanging on analytics/chat widgets
             page.goto(url, wait_until='domcontentloaded', timeout=45000)
             # Wait for JS-rendered content to appear
