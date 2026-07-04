@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T19:04:30.442439+00:00",
+  "generatedAt": "2026-07-04T19:10:55.083259+00:00",
   "museums": [
     {
       "name": "Whitney Museum of American Art",
@@ -8,7 +8,7 @@
       "hours": "Mon, Wed\u00e2\u0080\u0093Thu 10:30\u00e2\u0080\u00936, Fri\u00e2\u0080\u0093Sat 10:30\u00e2\u0080\u009310",
       "website": "https://whitney.org/",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "ok",
+      "scrapeStatus": "cached",
       "exhibitions": [
         {
           "title": "artport",
