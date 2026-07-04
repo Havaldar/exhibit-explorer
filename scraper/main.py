@@ -48,48 +48,29 @@ def fetch_sheet() -> list[dict]:
     return museums
 
 
-MIN_CONTENT_LEN = 300  # text shorter than this probably didn't render
+def fetch_page(url: str, force_playwright: bool = False) -> str | None:
+    """Fetch page using Playwright (real browser) for all museums.
 
-
-def fetch_page_playwright(url: str) -> str | None:
-    """Render page in a real Chromium browser — bypasses bot protection and JS rendering."""
+    Museum sites are too JS-heavy and bot-protected for plain requests to be
+    reliable — Playwright is the right default for a weekly job.
+    """
+    from playwright.sync_api import sync_playwright
     try:
-        from playwright.sync_api import sync_playwright
-        print(f"  Using Playwright for {url}")
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
             page.goto(url, wait_until='networkidle', timeout=45000)
-            # Extra wait for lazy-loaded content
-            page.wait_for_timeout(2000)
+            # Extra wait for lazy-loaded exhibition cards
+            page.wait_for_timeout(3000)
             html = page.content()
             browser.close()
         text = trafilatura.extract(html, include_links=False, include_images=False)
+        chars = len(text) if text else 0
+        print(f"  Fetched {chars} chars from {url}")
         return text or ''
     except Exception as e:
         print(f"  Playwright error {url}: {e}")
         return None
-
-
-def fetch_page(url: str, force_playwright: bool = False) -> str | None:
-    """Fetch page, automatically falling back to Playwright on errors or thin content."""
-    if force_playwright:
-        return fetch_page_playwright(url)
-
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=20)
-        if r.status_code in (403, 429):
-            print(f"  {r.status_code} from plain request — retrying with Playwright")
-            return fetch_page_playwright(url)
-        r.raise_for_status()
-        text = trafilatura.extract(r.text, include_links=False, include_images=False) or ''
-        if len(text) < MIN_CONTENT_LEN:
-            print(f"  Thin content ({len(text)} chars) — retrying with Playwright")
-            return fetch_page_playwright(url)
-        return text
-    except Exception as e:
-        print(f"  Fetch error {url}: {e} — retrying with Playwright")
-        return fetch_page_playwright(url)
 
 
 def sha256(text: str) -> str:
@@ -151,8 +132,8 @@ def run():
                     museums_out.append({**prev_by_name[name], 'scrapeStatus': 'failed'})
                 continue
 
-        # Fetch page (Playwright forced if sheet says needsJs, otherwise auto-fallback)
-        text = fetch_page(url, force_playwright=needs_js)
+        # Fetch page via Playwright (real browser, handles JS and bot protection)
+        text = fetch_page(url)
         time.sleep(REQUEST_DELAY)
 
         if text is None:
