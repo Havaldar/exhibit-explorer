@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T19:28:56.518903+00:00",
+  "generatedAt": "2026-07-04T19:33:09.945891+00:00",
   "museums": [
     {
       "name": "Museum of Modern Art",
@@ -151,7 +151,7 @@
           "title": "Ta\u00edna H. Cruz: I Saw the Future and It Smiled Back",
           "description": null,
           "startDate": null,
-          "endDate": "2026-09-30",
+          "endDate": "2026-09",
           "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
