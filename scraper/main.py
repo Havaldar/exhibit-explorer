@@ -57,11 +57,15 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
     from playwright.sync_api import sync_playwright
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
+            browser = p.chromium.launch(
+                headless=True,
+                # Required flags for CI/container environments (GitHub Actions)
+                args=['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
+            )
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
             page.goto(url, wait_until='networkidle', timeout=45000)
             # Extra wait for lazy-loaded exhibition cards
-            page.wait_for_timeout(3000)
+            page.wait_for_timeout(4000)
             html = page.content()
             browser.close()
         text = trafilatura.extract(html, include_links=False, include_images=False)
