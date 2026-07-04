@@ -1,6 +1,234 @@
 {
-  "generatedAt": "2026-07-04T19:10:55.083259+00:00",
+  "generatedAt": "2026-07-04T19:14:28.249650+00:00",
   "museums": [
+    {
+      "name": "Museum of Modern Art",
+      "lat": 40.7614,
+      "lng": -73.9776,
+      "hours": "Mon\u00e2\u0080\u0093Sun 10:30\u00e2\u0080\u00935:30, Fri until 8",
+      "website": "https://www.moma.org",
+      "lastSuccessfulScrape": "2026-07-04",
+      "scrapeStatus": "ok",
+      "exhibitions": [
+        {
+          "title": "Artist's Choice: Arthur Jafa\u2014Less Is Morbid",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-07-05",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "The Many Lives of the Nakagin Capsule Tower",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-07-12",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Ideas of Africa: Portraiture and Political Imagination",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-07-25",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "American Folk Art: Revisiting the Collection of Abby Aldrich Rockefeller",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-08-09",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Marcel Duchamp",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-08-22",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Frida and Diego: The Last Dream",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-09-12",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Peggy Weil: Core Memory",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-10-04",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Pierre Huyghe: UUmwelt",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-11-29",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Architects of Liberation: Modernism in Western Africa",
+          "description": null,
+          "startDate": "2026-07-05",
+          "endDate": "2027-01-02",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Odili Donald Odita: Songs from Life",
+          "description": null,
+          "startDate": null,
+          "endDate": "2027-06-01",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "It's Alive! A Century of Animation from the Collection",
+          "description": null,
+          "startDate": "2026-08-01",
+          "endDate": "2027-06-01",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Studio Residency: Pageant",
+          "description": null,
+          "startDate": "2026-08-01",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Taking Back Our Space: Photographic Perspectives",
+          "description": null,
+          "startDate": "2026-09-20",
+          "endDate": "2027-05-02",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "The Surrealist Book",
+          "description": null,
+          "startDate": "2026-10-04",
+          "endDate": "2027-01-23",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Brancusi: The Artist and His Studio",
+          "description": null,
+          "startDate": "2026-10-25",
+          "endDate": "2027-02-27",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Na Mira: NO SMOKING",
+          "description": null,
+          "startDate": "2026-11-14",
+          "endDate": "2027-02-15",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Mondrian Boogie Woogie",
+          "description": null,
+          "startDate": "2027-03-21",
+          "endDate": "2027-07-31",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "MoMA Staff Art Exhibition 2026",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-07-05",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Creativity Lab: Make a Portrait",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-08-30",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "The Modern Window: Julien Ceccaldi",
+          "description": null,
+          "startDate": null,
+          "endDate": "2025-09-30",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Hyundai Card FirstLook: Joan Snyder",
+          "description": null,
+          "startDate": "2026-04-23",
+          "endDate": "2026-10-01",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Hyundai Card FirstLook: Sheree Hovsepian",
+          "description": null,
+          "startDate": "2026-04-24",
+          "endDate": "2026-10-01",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "The Sumptuous Discovery of Gotham a Go-Go",
+          "description": null,
+          "startDate": "2025-03-08",
+          "endDate": null,
+          "ongoing": true,
+          "imageUrl": null,
+          "detailUrl": null
+        }
+      ]
+    },
+    {
+      "name": "Metropolitan Museum",
+      "lat": 40.7794,
+      "lng": -73.9634,
+      "hours": "Sun\u00e2\u0080\u0093Tue, Thu 10\u00e2\u0080\u00935, Fri\u00e2\u0080\u0093Sat 10\u00e2\u0080\u00939",
+      "website": "https://www.metmuseum.org/",
+      "lastSuccessfulScrape": "2026-07-04",
+      "scrapeStatus": "ok",
+      "exhibitions": []
+    },
     {
       "name": "Whitney Museum of American Art",
       "lat": 40.7396,
@@ -8,7 +236,7 @@
       "hours": "Mon, Wed\u00e2\u0080\u0093Thu 10:30\u00e2\u0080\u00936, Fri\u00e2\u0080\u0093Sat 10:30\u00e2\u0080\u009310",
       "website": "https://whitney.org/",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "cached",
+      "scrapeStatus": "ok",
       "exhibitions": [
         {
           "title": "artport",
