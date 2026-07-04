@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T19:33:09.945891+00:00",
+  "generatedAt": "2026-07-04T19:36:13.341064+00:00",
   "museums": [
     {
       "name": "Museum of Modern Art",
@@ -31,146 +31,20 @@
       "scrapeStatus": "ok",
       "exhibitions": [
         {
-          "title": "Whitney Biennial 2026",
-          "description": null,
-          "startDate": null,
-          "endDate": "2026-08-23",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Andy Warhol Family Album",
-          "description": null,
-          "startDate": null,
-          "endDate": "2026-10-19",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Hyundai Terrace Commission: Kelly Akashi",
-          "description": null,
-          "startDate": null,
-          "endDate": "2026-08-23",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Mabel Dwight: Cool Head, Warm Heart",
-          "description": null,
-          "startDate": null,
-          "endDate": "2026-08-30",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "\"Untitled\" (America)",
-          "description": null,
+          "title": "artport",
+          "description": "The Whitney's portal to net art and digital arts, and an online gallery space for commissioned net art projects. The Whitney also hosts events and exhibitions in a virtual environment within MONA.",
           "startDate": null,
           "endDate": null,
-          "ongoing": false,
+          "ongoing": true,
           "imageUrl": null,
           "detailUrl": null
         },
         {
-          "title": "Dyani White Hawk: Nourish",
-          "description": null,
+          "title": "Public art",
+          "description": "Engage with powerful site-specific artworks outside the Whitney's walls.",
           "startDate": null,
           "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Roy Lichtenstein",
-          "description": null,
-          "startDate": "2026",
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Leo Casta\u00f1eda: Camoflux Recall Grotto",
-          "description": null,
-          "startDate": "2026",
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Memo Akten & Katie Hofstadter: The Thinking Ocean",
-          "description": null,
-          "startDate": "2026",
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Robert Nideffer: 12 Years in Azeroth \u2013 The Journey Begins",
-          "description": null,
-          "startDate": "2025",
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Frank WANG Yefeng: The Levitating Perils #2",
-          "description": null,
-          "startDate": "2025-10-29",
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "INFANT: BANNED SKILLS",
-          "description": null,
-          "startDate": "2025",
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Nancy Baker Cahill: CENTO",
-          "description": null,
-          "startDate": null,
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Ta\u00edna H. Cruz: I Saw the Future and It Smiled Back",
-          "description": null,
-          "startDate": null,
-          "endDate": "2026-09",
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "David Hammons: Day's End",
-          "description": null,
-          "startDate": null,
-          "endDate": null,
-          "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "Rashid Johnson: New Poetry",
-          "description": null,
-          "startDate": null,
-          "endDate": null,
-          "ongoing": false,
+          "ongoing": true,
           "imageUrl": null,
           "detailUrl": null
         }
