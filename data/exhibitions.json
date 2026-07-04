@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T19:14:28.249650+00:00",
+  "generatedAt": "2026-07-04T19:18:08.413009+00:00",
   "museums": [
     {
       "name": "Museum of Modern Art",
@@ -8,7 +8,7 @@
       "hours": "Mon\u00e2\u0080\u0093Sun 10:30\u00e2\u0080\u00935:30, Fri until 8",
       "website": "https://www.moma.org",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "ok",
+      "scrapeStatus": "cached",
       "exhibitions": [
         {
           "title": "Artist's Choice: Arthur Jafa\u2014Less Is Morbid",
@@ -236,7 +236,7 @@
       "hours": "Mon, Wed\u00e2\u0080\u0093Thu 10:30\u00e2\u0080\u00936, Fri\u00e2\u0080\u0093Sat 10:30\u00e2\u0080\u009310",
       "website": "https://whitney.org/",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "ok",
+      "scrapeStatus": "cached",
       "exhibitions": [
         {
           "title": "artport",
