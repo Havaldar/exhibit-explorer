@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T19:18:08.413009+00:00",
+  "generatedAt": "2026-07-04T19:22:01.821284+00:00",
   "museums": [
     {
       "name": "Museum of Modern Art",
@@ -8,7 +8,7 @@
       "hours": "Mon\u00e2\u0080\u0093Sun 10:30\u00e2\u0080\u00935:30, Fri until 8",
       "website": "https://www.moma.org",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "cached",
+      "scrapeStatus": "ok",
       "exhibitions": [
         {
           "title": "Artist's Choice: Arthur Jafa\u2014Less Is Morbid",
@@ -95,7 +95,7 @@
           "title": "Odili Donald Odita: Songs from Life",
           "description": null,
           "startDate": null,
-          "endDate": "2027-06-01",
+          "endDate": "2027-05-31",
           "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
@@ -104,7 +104,7 @@
           "title": "It's Alive! A Century of Animation from the Collection",
           "description": null,
           "startDate": "2026-08-01",
-          "endDate": "2027-06-01",
+          "endDate": "2027-08-31",
           "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
@@ -191,29 +191,20 @@
           "detailUrl": null
         },
         {
-          "title": "Hyundai Card FirstLook: Joan Snyder",
+          "title": "Hyundai Card First Look: Joan Snyder",
           "description": null,
           "startDate": "2026-04-23",
-          "endDate": "2026-10-01",
+          "endDate": "2026-11-30",
           "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
         },
         {
-          "title": "Hyundai Card FirstLook: Sheree Hovsepian",
+          "title": "Hyundai Card First Look: Sheree Hovsepian",
           "description": null,
           "startDate": "2026-04-24",
-          "endDate": "2026-10-01",
+          "endDate": "2026-11-30",
           "ongoing": false,
-          "imageUrl": null,
-          "detailUrl": null
-        },
-        {
-          "title": "The Sumptuous Discovery of Gotham a Go-Go",
-          "description": null,
-          "startDate": "2025-03-08",
-          "endDate": null,
-          "ongoing": true,
           "imageUrl": null,
           "detailUrl": null
         }
@@ -236,7 +227,7 @@
       "hours": "Mon, Wed\u00e2\u0080\u0093Thu 10:30\u00e2\u0080\u00936, Fri\u00e2\u0080\u0093Sat 10:30\u00e2\u0080\u009310",
       "website": "https://whitney.org/",
       "lastSuccessfulScrape": "2026-07-04",
-      "scrapeStatus": "cached",
+      "scrapeStatus": "ok",
       "exhibitions": [
         {
           "title": "artport",
