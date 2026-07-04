@@ -48,6 +48,9 @@ def fetch_sheet() -> list[dict]:
     return museums
 
 
+MIN_CONTENT_LEN = 300  # text shorter than this probably didn't render
+
+
 def fetch_page_playwright(url: str) -> str | None:
     """Render page in a real Chromium browser — bypasses bot protection and JS rendering."""
     try:
@@ -56,7 +59,9 @@ def fetch_page_playwright(url: str) -> str | None:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
-            page.goto(url, wait_until='networkidle', timeout=30000)
+            page.goto(url, wait_until='networkidle', timeout=45000)
+            # Extra wait for lazy-loaded content
+            page.wait_for_timeout(2000)
             html = page.content()
             browser.close()
         text = trafilatura.extract(html, include_links=False, include_images=False)
@@ -67,7 +72,7 @@ def fetch_page_playwright(url: str) -> str | None:
 
 
 def fetch_page(url: str, force_playwright: bool = False) -> str | None:
-    """Fetch page, automatically falling back to Playwright on 403/429."""
+    """Fetch page, automatically falling back to Playwright on errors or thin content."""
     if force_playwright:
         return fetch_page_playwright(url)
 
@@ -77,8 +82,11 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
             print(f"  {r.status_code} from plain request — retrying with Playwright")
             return fetch_page_playwright(url)
         r.raise_for_status()
-        text = trafilatura.extract(r.text, include_links=False, include_images=False)
-        return text or ''
+        text = trafilatura.extract(r.text, include_links=False, include_images=False) or ''
+        if len(text) < MIN_CONTENT_LEN:
+            print(f"  Thin content ({len(text)} chars) — retrying with Playwright")
+            return fetch_page_playwright(url)
+        return text
     except Exception as e:
         print(f"  Fetch error {url}: {e} — retrying with Playwright")
         return fetch_page_playwright(url)
