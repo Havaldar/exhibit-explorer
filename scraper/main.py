@@ -59,16 +59,18 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                # Required flags for CI/container environments (GitHub Actions)
+                # Required flags for GitHub Actions / containerized CI
                 args=['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
             )
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
-            page.goto(url, wait_until='networkidle', timeout=45000)
-            # Extra wait for lazy-loaded exhibition cards
-            page.wait_for_timeout(4000)
-            html = page.content()
+            # domcontentloaded is faster and avoids hanging on analytics/chat widgets
+            page.goto(url, wait_until='domcontentloaded', timeout=45000)
+            # Wait for JS-rendered content to appear
+            page.wait_for_timeout(5000)
+            # inner_text() gives the rendered DOM text — much more complete than
+            # running trafilatura on the raw HTML for JS-heavy museum sites
+            text = page.inner_text('body')
             browser.close()
-        text = trafilatura.extract(html, include_links=False, include_images=False)
         chars = len(text) if text else 0
         print(f"  Fetched {chars} chars from {url}")
         return text or ''
