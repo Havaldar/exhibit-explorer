@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T19:36:13.341064+00:00",
+  "generatedAt": "2026-07-04T19:39:19.811682+00:00",
   "museums": [
     {
       "name": "Museum of Modern Art",
@@ -31,20 +31,92 @@
       "scrapeStatus": "ok",
       "exhibitions": [
         {
-          "title": "artport",
-          "description": "The Whitney's portal to net art and digital arts, and an online gallery space for commissioned net art projects. The Whitney also hosts events and exhibitions in a virtual environment within MONA.",
+          "title": "Whitney Biennial 2026",
+          "description": null,
           "startDate": null,
-          "endDate": null,
-          "ongoing": true,
+          "endDate": "2026-08-23",
+          "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
         },
         {
-          "title": "Public art",
-          "description": "Engage with powerful site-specific artworks outside the Whitney's walls.",
+          "title": "Andy Warhol Family Album",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-10-19",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Hyundai Terrace Commission: Kelly Akashi",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-08-23",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Mabel Dwight: Cool Head, Warm Heart",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-08-30",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "\"Untitled\" (America)",
+          "description": null,
           "startDate": null,
           "endDate": null,
-          "ongoing": true,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Dyani White Hawk: Nourish",
+          "description": null,
+          "startDate": null,
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Roy Lichtenstein",
+          "description": null,
+          "startDate": "2026",
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Ta\u00edna H. Cruz: I Saw the Future and It Smiled Back",
+          "description": null,
+          "startDate": null,
+          "endDate": "2026-09",
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "David Hammons: Day's End",
+          "description": null,
+          "startDate": null,
+          "endDate": null,
+          "ongoing": false,
+          "imageUrl": null,
+          "detailUrl": null
+        },
+        {
+          "title": "Rashid Johnson: New Poetry",
+          "description": null,
+          "startDate": null,
+          "endDate": null,
+          "ongoing": false,
           "imageUrl": null,
           "detailUrl": null
         }
