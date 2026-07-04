@@ -55,23 +55,22 @@ def fetch_page(url: str, force_playwright: bool = False) -> str | None:
     reliable — Playwright is the right default for a weekly job.
     """
     from playwright.sync_api import sync_playwright
-    from playwright_stealth import stealth_sync
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=True,
-                # Required flags for GitHub Actions / containerized CI
                 args=['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu'],
             )
             page = browser.new_page(user_agent=HEADERS['User-Agent'])
-            # Mask headless signals that Cloudflare/Vercel bot detection looks for
-            stealth_sync(page)
-            # domcontentloaded is faster and avoids hanging on analytics/chat widgets
+            # Patch the signals Cloudflare/Vercel bot detection checks
+            page.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+                Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3] });
+                Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+                window.chrome = { runtime: {} };
+            """)
             page.goto(url, wait_until='domcontentloaded', timeout=45000)
-            # Wait for JS-rendered content to appear
             page.wait_for_timeout(5000)
-            # inner_text() gives the rendered DOM text — much more complete than
-            # running trafilatura on the raw HTML for JS-heavy museum sites
             text = page.inner_text('body')
             browser.close()
         chars = len(text) if text else 0
